@@ -18,7 +18,8 @@ app.use(cors());
 
 const CONNECTION_URL = 'mongodb+srv://abbascloud21:abbascloud21@cluster0.b1qz6a6.mongodb.net/?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;
-
+app.use(favicon(path.join(dirname, "build", "favicon.ico")));
+app.use(express.static(path.join(dirname, "build")));
 app.use('/posts', postRoutes);
 app.use('/user', userRouter);
 app.get("/",(req,res)=>{
